@@ -39,7 +39,7 @@ You can save these Codepen snippets on the cloud and start your collection of be
             href="https://t.me/your_telegram"
             target="_blank"
             rel="noopener noreferrer"
-            className="button-48"
+            className="page_about_me"
           >
             <span class="text">Telegram</span>
           </a>
@@ -47,13 +47,13 @@ You can save these Codepen snippets on the cloud and start your collection of be
             href="https://instagram.com/your_instagram"
             target="_blank"
             rel="noopener noreferrer"
-            className="button-48"
+            className="page_about_me"
           >
             <span class="text">Instagram</span>
           </a>
           <button
             onClick={copyEmailToClipboard}
-            className="button-48"
+            className="page_about_me"
           >
             <span class="text">Copy Email</span>
           </button>
@@ -61,7 +61,7 @@ You can save these Codepen snippets on the cloud and start your collection of be
       </div>
 
       {/* Кнопка перехода на страницу галереи */}
-      <Link to="/" className="mt-8 button-48">
+      <Link to="/" className="mt-8 page_about_me">
         <span class="text">На главную</span>
       </Link>
     </div>

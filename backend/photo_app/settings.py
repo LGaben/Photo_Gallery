@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-))dl+2c+y)bbz$o_5(8s3y!knw5j5-%4ab5ha-njb24cf1##x_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'backend', 'nginx']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'nginx', 'studious-bassoon-x6pwwqj54762pqvw-80.app.github.dev', '20.103.221.187:443']
 
 
 # Application definition
@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -74,7 +75,17 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'photo_app.wsgi.application'
-
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:80",
+    "http://127.0.0.1:80",
+    "https://studious-bassoon-x6pwwqj54762pqvw-80.app.github.dev/",
+    "20.103.221.187:443"
+]
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:80',  # Добавьте ваш локальный адрес
+    'http://nginx',         # Если используете Nginx
+    'https://studious-bassoon-x6pwwqj54762pqvw-80.app.github.dev/'  # Для production окружения
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -133,7 +144,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/' if config('DEBUG', cast=bool, default=True) else 'https://studious-bassoon-x6pwwqj54762pqvw-80.app.github.dev/media/'
+
+# MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

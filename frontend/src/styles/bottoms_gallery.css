@@ -1,0 +1,199 @@
+/* Стиль кнопок Next и Prev */
+.button-left,
+.button-right {
+  width: 33px;
+  height: 33px;
+  border: 2px solid #333;
+  border-left: 0;
+  border-top: 0;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.button-left {
+  transform: rotate(135deg); /* Стрелка влево */
+}
+
+.button-right {
+  transform: rotate(315deg); /* Стрелка вправо */
+}
+
+.page_about_me {
+    appearance: none;
+    background-color: #FFFFFF;
+    border-width: 0;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Clarkson, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1em;
+    margin: 0;
+    opacity: 1;
+    outline: 0;
+    padding: 1em 1.5em; /* Уменьшаем отступы для адаптивности */
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-rendering: geometricprecision;
+    text-transform: uppercase;
+    transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1), background-color 100ms cubic-bezier(.694, 0, 0.335, 1),
+      color 100ms cubic-bezier(.694, 0, 0.335, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+  }
+  .page_about_me:before {
+    animation: opacityFallbackOut .5s step-end forwards;
+    backface-visibility: hidden;
+    background-color: #EBEBEB;
+    clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translateZ(0);
+    transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+    width: 100%;
+  }
+  .page_about_me:hover:before {
+    animation: opacityFallbackIn 0s step-start forwards;
+    clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+  }
+  .page_about_me:after {
+    background-color: #FFFFFF;
+  }
+  .page_about_me span {
+    z-index: 1;
+    position: relative;
+  }
+/* Стили для кнопок */
+.link_about_me {
+    appearance: none;
+    background-color: #F3F4F6;
+    border-width: 0;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Clarkson, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1em;
+    margin: 0;
+    opacity: 1;
+    outline: 0;
+    padding: 1em 1.5em; /* Уменьшаем отступы для адаптивности */
+    position: absolute; /* Абсолютное позиционирование */
+    text-align: center;
+    text-decoration: none;
+    text-rendering: geometricprecision;
+    text-transform: uppercase;
+    transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1), background-color 100ms cubic-bezier(.694, 0, 0.335, 1),
+      color 100ms cubic-bezier(.694, 0, 0.335, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+    z-index: 10; /* Гарантируем, что кнопка будет поверх других элементов */
+  }
+  .link_about_me:before {
+    animation: opacityFallbackOut .5s step-end forwards;
+    backface-visibility: hidden;
+    background-color: #EBEBEB;
+    clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translateZ(0);
+    transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+    width: 100%;
+  }
+  .link_about_me:hover:before {
+    animation: opacityFallbackIn 0s step-start forwards;
+    clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+  }
+  .link_about_me:after {
+    background-color: #FFFFFF;
+  }
+  .link_about_me span {
+    z-index: 1;
+    position: relative;
+  }
+  
+  
+  /* Адаптивность для кнопки About Me */
+  
+  .link_about_me_mobile {
+    appearance: none;
+    background-color: #FFFFFF;
+    border-width: 0;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Clarkson, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 1em;
+    margin: 0;
+    opacity: 1;
+    outline: 0;
+    padding: 0.5em 0.5em; /* Уменьшаем отступы для адаптивности */
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-rendering: geometricprecision;
+    text-transform: uppercase;
+    transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1), background-color 100ms cubic-bezier(.694, 0, 0.335, 1),
+      color 100ms cubic-bezier(.694, 0, 0.335, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+  }
+
+.button-left_mobile,
+.button-right_mobile {
+    display: none; /* Скрываем кнопки на мобильных устройствах */
+}
+
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .button-left,
+    .button-right {
+      width: 30px;
+      height: 30px;
+    }
+    .link_about_me {
+        font-size: 13px; /* Средний размер текста */
+        padding: 0.9em 1.3em; /* Средние отступы */
+    }
+}
+
+
+@media (min-width: 1025px) {
+  
+  .button-left,
+  .button-right {
+    width: 33px;
+    height: 33px;
+  }
+  .link_about_me {
+    font-size: 14px; /* Большой размер текста */
+    padding: 1em 1.5em; /* Большие отступы */
+  }
+}
