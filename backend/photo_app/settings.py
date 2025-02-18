@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'nginx', 'zobiemwt.beget.tech', '20.103.221.187:443']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split()
 
 
 # Application definition
@@ -78,12 +78,12 @@ WSGI_APPLICATION = 'photo_app.wsgi.application'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:80",
     "http://127.0.0.1:80",
-    "zobiemwt.beget.tech"
+    "http://84.201.165.150"
 ]
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:80',  # Добавьте ваш локальный адрес
     'http://nginx',         # Если используете Nginx
-    'zobiemwt.beget.tech'  # Для production окружения
+    'http://84.201.165.150'  # Для production окружения
 ]
 
 # Database
