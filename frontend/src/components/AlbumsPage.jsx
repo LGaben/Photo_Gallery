@@ -3,11 +3,13 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../styles/albom_page.css'; // Импортируйте стили
 import { motion, AnimatePresence } from 'framer-motion';
+import { getDeviceType } from './getDeviceType'
 
 function AlbumsPage() {
   const [albums, setAlbums] = useState([]);
   const [selectedAlbum, setSelectedAlbum] = useState(null); // Выбранный альбом
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null); // Индекс выбранной фотографии
+  const device = getDeviceType()
 
   useEffect(() => {
     // Загружаем все фотографии с бэкенда
@@ -51,7 +53,11 @@ function AlbumsPage() {
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center py-8">
 
       {/* Заголовок */}
-      <h1 className="text-4xl text-h1 mb-8 z-10 text-center">Альбомы</h1>
+      { device === true ? 
+        <p className="p_size text-4xl text-h1 mb-8 z-10 text-center">Альбомы</p>
+        : <h1 className="text-4xl text-h1 mb-8 z-10 text-center">Альбомы</h1>
+      }
+      
 
       {/* Список альбомов */}
         <div className="grid1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl px-4">
@@ -76,7 +82,8 @@ function AlbumsPage() {
                 />
 
                 {/* Оверлей с названием альбома */}
-                <div className="absolute inset-0 via-transparent to-transparent p-4 flex items-end description-overlay">
+                <div className={`absolute inset-0 via-transparent to-transparent p-4 flex items-end 
+                  ${ device === true ? 'description-overlay_mobile' : 'description-overlay'}`}>
                   <p className="text-white white-text-with-shadow font-semibold">{album.name}</p>
                 </div>
               </Link>

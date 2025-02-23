@@ -21,13 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-))dl+2c+y)bbz$o_5(8s3y!knw5j5-%4ab5ha-njb24cf1##x_'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ['DEBUG'] == 'TRUE'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'backend', 'nginx']
-
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split()
 
 # Application definition
 
@@ -74,8 +73,26 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'photo_app.wsgi.application'
-
-
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:80",
+    "http://127.0.0.1:80",
+    "http://84.201.165.150",
+    "https://alexandrafilina-photographer.ru",
+    "https://www.alexandrafilina-photographer.ru"
+]
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:80',  # Добавьте ваш локальный адрес
+    'http://nginx',         # Если используете Nginx
+    'http://84.201.165.150',
+    'https://alexandrafilina-photographer.ru',
+    'https://www.alexandrafilina-photographer.ru'  # Для production окружения
+]
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -132,7 +149,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+# MEDIA_URL = '/media/' if config('DEBUG', cast=bool, default=True) else os.getenv('MEDIA')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type

@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
   backend:
@@ -28,10 +28,12 @@ services:
     image: nginx:alpine
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/ssl:/etc/nginx/ssl
       - ./backend/static:/app/static
       - ./backend/media:/app/media
     ports:
       - "80:80"
+      - "443:443"
     networks:
       - app-network
     depends_on:
@@ -56,3 +58,4 @@ networks:
 
 volumes:
   postgres_data:
+  

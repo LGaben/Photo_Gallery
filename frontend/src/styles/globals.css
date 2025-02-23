@@ -43,34 +43,11 @@
   backdrop-filter: blur(8px); /* Эффект размытия */
 }
 
-/* Стиль кнопок Next и Prev */
-.button-left,
-.button-right {
-  width: 33px;
-  height: 33px;
-  border: 2px solid #333;
-  border-left: 0;
-  border-top: 0;
-  background-color: transparent;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
+.p_size {
+  font-size: 1.3rem;
 }
-
-.button-left {
-  transform: rotate(135deg); /* Стрелка влево */
-}
-
-.button-right {
-  transform: rotate(315deg); /* Стрелка вправо */
-}
-
-
 /* Скрытие кнопок на маленьких экранах */
 @media (max-width: 640px) {
-  .button-left,
-  .button-right {
-    display: none; /* Скрываем кнопки на мобильных устройствах */
-  }
 
   h1 {
     font-size: 1.3rem; /* Уменьшаем заголовок на маленьких экранах */
@@ -79,8 +56,11 @@
   .swiper-slide {
     padding: 10px; /* Добавляем отступы для слайдов */
   }
-}
 
+}
+.description-overlay_mobile {
+  opacity: 1 !important; /* Всегда видимый */
+}
 
 
 /* Адаптивные стили для средних экранов */
@@ -92,12 +72,6 @@
   .swiper-slide {
     padding: 15px; /* Отступы для средних экранов */
   }
-
-  .button-left,
-  .button-right {
-    width: 30px;
-    height: 30px;
-  }
 }
 
 @media (min-width: 1025px) {
@@ -107,12 +81,6 @@
 
   .swiper-slide {
     padding: 20px; /* Большие отступы для больших экранов */
-  }
-
-  .button-left,
-  .button-right {
-    width: 33px;
-    height: 33px;
   }
 }
 
@@ -156,129 +124,7 @@ img:hover {
   opacity: 1;
 }
 
-/* Всегда показывать оверлей на мобильных устройствах */
-@media (max-width: 640px) {
-  .description-overlay {
-    opacity: 1 !important; /* Всегда видимый */
-  }
-}
 
-
-/* Стили для кнопок */
-.button-49 {
-  appearance: none;
-  background-color: #F3F4F6;
-  border-width: 0;
-  box-sizing: border-box;
-  color: #000000;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Clarkson, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1em;
-  margin: 0;
-  opacity: 1;
-  outline: 0;
-  padding: 1em 1.5em; /* Уменьшаем отступы для адаптивности */
-  position: absolute; /* Абсолютное позиционирование */
-  text-align: center;
-  text-decoration: none;
-  text-rendering: geometricprecision;
-  text-transform: uppercase;
-  transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1), background-color 100ms cubic-bezier(.694, 0, 0.335, 1),
-    color 100ms cubic-bezier(.694, 0, 0.335, 1);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  white-space: nowrap;
-  z-index: 10; /* Гарантируем, что кнопка будет поверх других элементов */
-}
-.button-49:before {
-  animation: opacityFallbackOut .5s step-end forwards;
-  backface-visibility: hidden;
-  background-color: #EBEBEB;
-  clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
-  content: "";
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  transform: translateZ(0);
-  transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
-  width: 100%;
-}
-.button-49:hover:before {
-  animation: opacityFallbackIn 0s step-start forwards;
-  clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
-}
-.button-49:after {
-  background-color: #FFFFFF;
-}
-.button-49 span {
-  z-index: 1;
-  position: relative;
-}
-
-
-/* Адаптивность для кнопки About Me */
-@media (max-width: 640px) {
-  .button-49 {
-    align-self: center;
-    background-color: #F3F4F6;
-    background-image: none;
-    background-position: 0 90%;
-    background-repeat: repeat no-repeat;
-    background-size: 4px 3px;
-    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-    border-style: solid;
-    border-width: 2px;
-    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
-    box-sizing: border-box;
-    color: #41403e;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Neucha, sans-serif;
-    font-size: 10px;
-    line-height: 5px;
-    outline: none;
-    padding: .55rem;
-    text-decoration: none;
-    transition: all 235ms ease-in-out;
-    border-bottom-left-radius: 15px 255px;
-    border-bottom-right-radius: 225px 15px;
-    border-top-left-radius: 255px 15px;
-    border-top-right-radius: 15px 225px;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-  }
-  
-  .button-49:hover {
-    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
-    transform: translate3d(0, 2px, 0);
-  }
-  
-  .button-49:focus {
-    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-  }
-}
-
-@media (min-width: 641px) and (max-width: 1024px) {
-  .button-49 {
-    font-size: 13px; /* Средний размер текста */
-    padding: 0.9em 1.3em; /* Средние отступы */
-  }
-}
-
-@media (min-width: 1025px) {
-  .button-49 {
-    font-size: 14px; /* Большой размер текста */
-    padding: 1em 1.5em; /* Большие отступы */
-  }
-}
 
 .white-text-with-shadow {
   text-shadow:
@@ -288,121 +134,4 @@ img:hover {
   color: white;
 }
 
-/* Стили для кнопок */
-.button-48 {
-  appearance: none;
-  background-color: #FFFFFF;
-  border-width: 0;
-  box-sizing: border-box;
-  color: #000000;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Clarkson, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1em;
-  margin: 0;
-  opacity: 1;
-  outline: 0;
-  padding: 1em 1.5em; /* Уменьшаем отступы для адаптивности */
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  text-rendering: geometricprecision;
-  text-transform: uppercase;
-  transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1), background-color 100ms cubic-bezier(.694, 0, 0.335, 1),
-    color 100ms cubic-bezier(.694, 0, 0.335, 1);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  white-space: nowrap;
-}
-.button-48:before {
-  animation: opacityFallbackOut .5s step-end forwards;
-  backface-visibility: hidden;
-  background-color: #EBEBEB;
-  clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
-  content: "";
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  transform: translateZ(0);
-  transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
-  width: 100%;
-}
-.button-48:hover:before {
-  animation: opacityFallbackIn 0s step-start forwards;
-  clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
-}
-.button-48:after {
-  background-color: #FFFFFF;
-}
-.button-48 span {
-  z-index: 1;
-  position: relative;
-}
 
-/* Адаптивность для кнопки About Me */
-@media (max-width: 640px) {
-/* Адаптивность для кнопки About Me */
-@media (max-width: 640px) {
-  .button-48 {
-    align-self: center;
-    background-color: #F3F4F6;
-    background-image: none;
-    background-position: 0 90%;
-    background-repeat: repeat no-repeat;
-    background-size: 4px 3px;
-    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-    border-style: solid;
-    border-width: 2px;
-    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
-    box-sizing: border-box;
-    color: #41403e;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Neucha, sans-serif;
-    font-size: 15px;
-    line-height: 15px;
-    outline: none;
-    padding: .75rem;
-    text-decoration: none;
-    transition: all 235ms ease-in-out;
-    border-bottom-left-radius: 15px 255px;
-    border-bottom-right-radius: 225px 15px;
-    border-top-left-radius: 255px 15px;
-    border-top-right-radius: 15px 225px;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-  }
-  
-  .button-48:hover {
-    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
-    transform: translate3d(0, 2px, 0);
-  }
-  
-  .button-48:focus {
-    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-  }
-
-}
-
-}
-
-@media (min-width: 641px) and (max-width: 1024px) {
-  .button-48 {
-    font-size: 13px; /* Средний размер текста */
-    padding: 0.9em 1.3em; /* Средние отступы */
-  }
-}
-
-@media (min-width: 1025px) {
-  .button-48 {
-    font-size: 14px; /* Большой размер текста */
-    padding: 1em 1.5em; /* Большие отступы */
-  }
-}

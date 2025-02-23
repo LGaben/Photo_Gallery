@@ -29,31 +29,45 @@ function AboutMe() {
       {/* Описание */}
       <div className="rounded-lg p-8 max-w-3xl w-full text-center">
         <p className="text-gray-700 text-lg mb-6">
-        Extract the HTML and CSS of elements and all its child elements (as whole components).
-You can save these Codepen snippets on the cloud and start your collection of beautiful elements that you can use on your projects from today on. 
+          Здравствуйте! Меня зовут Александра Филина, я портретный фотограф.
+        </p>
+        <p>
+          Я внимательно слушаю пожелания и идеи каждого клиента, чтобы создать атмосферу доверия и понимания.
+          Стараюсь сделать процесс съемки расслабляющим и веселым, чтобы вы могли быть самими собой и чувствовать себя комфортно перед камерой.
+          Мой опыт позволяет мне уверенно направлять вас во время съемки, что помогает избежать лишнего напряжения и стресса.
+          Эти аспекты помогают создать уникальную атмосферу, в которой каждый может раскрыться и насладиться процессом.
+        </p>
+        <p>
+          Я верю, что фотография — это искусство, способное сохранять мгновения.
+        </p>
+        <p>
+          Вы можете написать мне и узнать подробнее о съемке.
+        </p>
+        <p className="mb-6">
+          Буду рада познакомиться и воплотить ваши идеи в реальность!
         </p>
 
         {/* Ссылки */}
         <div className="flex flex-col md:flex-row gap-4 justify-center">
           <a
-            href="https://t.me/your_telegram"
+            href="https://t.me/Alex_Filina"
             target="_blank"
             rel="noopener noreferrer"
-            className="button-48"
+            className="page_about_me"
           >
             <span class="text">Telegram</span>
           </a>
           <a
-            href="https://instagram.com/your_instagram"
+            href="https://www.instagram.com/alexandra.filina"
             target="_blank"
             rel="noopener noreferrer"
-            className="button-48"
+            className="page_about_me"
           >
             <span class="text">Instagram</span>
           </a>
           <button
             onClick={copyEmailToClipboard}
-            className="button-48"
+            className="page_about_me"
           >
             <span class="text">Copy Email</span>
           </button>
@@ -61,7 +75,7 @@ You can save these Codepen snippets on the cloud and start your collection of be
       </div>
 
       {/* Кнопка перехода на страницу галереи */}
-      <Link to="/" className="mt-8 button-48">
+      <Link to="/" className="mt-8 page_about_me">
         <span class="text">На главную</span>
       </Link>
     </div>

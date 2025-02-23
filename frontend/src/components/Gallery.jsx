@@ -8,10 +8,14 @@ import 'swiper/css/scrollbar';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import AlbumsPage from './AlbumsPage';
+import SidePanel from './SidePanel';
+import { getDeviceType } from './getDeviceType'
+
 
 function Gallery() {
   const [photos, setPhotos] = useState([]);
   const swiperRef = useRef(null); // Для управления Swiper
+  const device = getDeviceType()
 
   useEffect(() => {
     fetchPhotos();
@@ -34,31 +38,35 @@ function Gallery() {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gray-100 flex flex-col items-center justify-center py-8 relative"
     >
-
+      { device === true ? 
+        <SidePanel /> : <Link
+          to="/about-me"
+          className={` ${ device === true ? 'link_about_me_mobile' : 'link_about_me'} absolute top-4 left-4 z-10 md:top-6 md:left-6 `}
+        >
+          <span className="text">Обо мне {device}</span>
+        </Link>}
+      
       {/* Кнопка "About Me" в верхнем левом углу */}
-      <Link
-        to="/about-me"
-        className="button-49 absolute top-4 left-4 z-10 md:top-6 md:left-6"
-      >
-        <span className="text">Обо мне</span>
-      </Link>
-
-      <h1 className="text-4xl text-h1 mb-8 z-10 text-center">Александра Филина</h1>
+      { device === true ? 
+        <p className="p_size text-4xl text-h1 mb-8 z-10 text-center">Александра Филина</p>
+        : <h1 className="text-4xl text-h1 mb-8 z-10 text-center">Александра Филина</h1>
+      }
 
       {/* Карусель с фотографиями */}
       <div className="relative w-full max-w-7xl px-4">
         {/* Кнопка "Назад" */}
         <button
           onClick={() => swiperRef.current?.swiper.slidePrev()}
-          className="button-left absolute top-1/2 left-4 transform -translate-y-1/2 z-10 md:left-8"
+          className={`${ device === true ? 'button-left_mobile' : 'button-left'}
+            absolute top-1/2 left-4 transform -translate-y-1/2 z-10 md:left-8`}
         ></button>
 
         {/* Кнопка "Вперед" */}
         <button
           onClick={() => swiperRef.current?.swiper.slideNext()}
-          className="button-right absolute top-1/2 right-4 transform -translate-y-1/2 z-10 md:right-8"
+          className={`${ device === true ? 'button-right_mobile' : 'button-right'}
+            absolute top-1/2 right-4 transform -translate-y-1/2 z-10 md:right-8`}
         ></button>
-
         <Swiper
           ref={swiperRef} // Сохраняем ссылку на Swiper
           modules={[Navigation, A11y, Scrollbar]}
@@ -93,8 +101,9 @@ function Gallery() {
                 />
              
                 {/* Оверлей с описанием */}
-                <div className="absolute inset-0 via-transparent to-transparent p-4 flex items-end description-overlay">
-                  <p className="text-white white-text-with-shadow font-semibold">{photo.description || 'No description'}</p>
+                <div className={`absolute inset-0 via-transparent to-transparent p-4 flex items-end 
+                  ${ device === true ? 'description-overlay_mobile' : 'description-overlay'}`}>
+                  <p className="text-white white-text-with-shadow font-semibold">{photo.description || ''}</p>
                 </div>
               </motion.div>
             </SwiperSlide>
