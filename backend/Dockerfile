@@ -10,10 +10,10 @@ ENV PYTHONUNBUFFERED=1
 #     libpq-dev \
 #     && rm -rf /var/lib/apt/lists/*
 
-COPY backend/requirements.txt .
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY backend/ .
+COPY . .
 
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "photo_app.wsgi"]
 
