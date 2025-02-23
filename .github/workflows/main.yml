@@ -23,7 +23,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./frontend/
-          dockerfile: Dockerfile.frontend
           push: true
           tags: lordgaben/pg_frontend:latest
   build_backend_and_push_to_docker_hub:
@@ -43,7 +42,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./backend/
-          dockerfile: Dockerfile.backend
           push: true
           tags: lordgaben/pg_backend:latest
   deploy:
