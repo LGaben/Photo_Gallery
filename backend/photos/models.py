@@ -8,6 +8,7 @@ class Albom(models.Model):
         verbose_name='Название'
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    custom_id = models.PositiveSmallIntegerField()
     def __str__(self):
         return self.name[:50]
 

@@ -5,7 +5,7 @@ from .models import Photo, Albom, PhotoCarousel
 
 @admin.register(Photo)
 class PhotoAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'image', 'user', 'description')
+    list_display = ('name', 'image', 'user', 'description')
     list_filter = ('name', 'image', 'user', 'description')
     search_fields = ('name', 'image', 'user', 'description')
 
@@ -13,7 +13,7 @@ class PhotoAdmin(admin.ModelAdmin):
 
 @admin.register(Albom)
 class AlbomAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'user')
+    list_display = ('custom_id', 'name', 'user')
     list_filter = ('name', 'user')
     search_fields = ('name', 'user')
 
