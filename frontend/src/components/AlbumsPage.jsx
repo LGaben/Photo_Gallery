@@ -29,7 +29,7 @@ function AlbumsPage() {
                 photos: [],
               };
             }
-            groupedAlbums[album.name].photos.push(photo);
+            groupedAlbums[album.custom_id].photos.push(photo);
           });
         });
 
