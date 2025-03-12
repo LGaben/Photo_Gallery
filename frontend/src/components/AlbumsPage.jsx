@@ -22,9 +22,9 @@ function AlbumsPage() {
         const groupedAlbums = {};
         photos.forEach((photo) => {
           photo.alboms.forEach((album) => {
-            if (!groupedAlbums[album.name]) {
-              groupedAlbums[album.name] = {
-                id: album.name,
+            if (!groupedAlbums[album.custom_id]) {
+              groupedAlbums[album.custom_id] = {
+                id: album.custom_id,
                 name: album.name,
                 photos: [],
               };
