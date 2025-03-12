@@ -1,7 +1,7 @@
 # Photo Gallery Web Application
 Портфолио для фотографа
 
-Это веб-приложение было сделано как портфолио для фотографа.
+Это веб-приложение было сделано как портфолио для фотографа. https://alexandrafilina-photographer.ru/
 Приложение состоит из двух основных частей: бэкенд на Django REST Framework для управления данными и API,
 а также фронтенд на React/Vite для интерактивного пользовательского интерфейса.
 Проект был успешно контейнеризирован с использованием Docker Compose, что обеспечивает легкую развертываемость и масштабируемость.
@@ -29,8 +29,10 @@
     ```sudo certbot certonly --standalone -d your-domain.com```
     Замените ```your-domain.com``` на ваш реальный домен.
     Скопируйте сертификаты в папку ssl:
-    ```cp /etc/letsencrypt/live/alexandrafilina-photographer.ru/fullchain.pem ./nginx/ssl/cert.pem
-    cp /etc/letsencrypt/live/alexandrafilina-photographer.ru/privkey.pem ./nginx/ssl/key.pem```
+    ```
+    cp /etc/letsencrypt/live/alexandrafilina-photographer.ru/fullchain.pem ./nginx/ssl/cert.pem
+    cp /etc/letsencrypt/live/alexandrafilina-photographer.ru/privkey.pem ./nginx/ssl/key.pem
+    ```
     Создайте файл .env по примеру в .env.exampl
     
     Должна получиться следущая структура:
@@ -65,7 +67,7 @@
     *   автоматический деплой проекта на боевой сервер
     *   отправка уведомления в Telegram о том, что процесс деплоя успешно завершился
 
-    Далее нужно создать супер пользователя
+    Cоздайте супер пользователя:
 
     ```sudo docker-compose exec web python manage.py createsuperuser```
 
