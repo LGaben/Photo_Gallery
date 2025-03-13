@@ -7,7 +7,7 @@
 Проект был успешно контейнеризирован с использованием Docker Compose, что обеспечивает легкую развертываемость и масштабируемость.
 А так же был настроен CI/CD/.
 
-![screenshot](https://https://github.com/LGaben/Photo_Gallery/docs/screenshot.gif)
+![screenshot](https://github.com/LGaben/Photo_Gallery/blob/main/docs/screenshot.gif)
 
 ### **Используемые технологии**
 
